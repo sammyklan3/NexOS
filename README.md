@@ -14,7 +14,7 @@ This project is a **bare-metal** operating system written in **Assembly and C**,
 
 ## 📂 Project Structure
 ```
-📦 my-os-project  
+📦 NexOs 
 ├── bootloader/    # Bootloader code (assembly)  
 ├── kernel/        # Kernel code (C)  
 ├── iso/           # Disk image & ISO build files  
@@ -31,34 +31,20 @@ Make sure you have the required tools installed:
 sudo apt install nasm x86_64-elf-gcc x86_64-elf-binutils qemu
 ```
 
-### **2️⃣ Compile the Bootloader**  
-Assemble the bootloader using NASM:  
+### **2️⃣ Build the OS**  
+To compile everything, simply run:  
 ```bash
-nasm -f bin bootloader/boot.asm -o bootloader/boot.bin
+make
 ```
 
-### **3️⃣ Compile the Kernel**  
-Compile the kernel using the cross-compiler:  
+### **3️⃣ Run the OS in QEMU**  
 ```bash
-x86_64-elf-gcc -ffreestanding -m64 -c kernel/kernel.c -o kernel/kernel.o
+make run
 ```
 
-### **4️⃣ Link the Kernel**  
-Use the linker script to create the final kernel binary:  
+### **4️⃣ Clean Up Build Files**  
 ```bash
-x86_64-elf-ld -T kernel/linker.ld -o kernel.bin kernel/kernel.o
-```
-
-### **5️⃣ Create the OS Image**  
-Combine the bootloader and kernel to create a bootable image:  
-```bash
-cat bootloader/boot.bin kernel.bin > os-image.bin
-```
-
-### **6️⃣ Run in QEMU**  
-Test your OS in a QEMU virtual machine:  
-```bash
-qemu-system-x86_64 -drive format=raw,file=os-image.bin
+make clean
 ```
 
 ## 🛠 Future Plans
