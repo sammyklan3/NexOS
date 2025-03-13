@@ -1,0 +1,38 @@
+# Build artifacts
+*.o
+*.bin
+*.elf
+*.iso
+*.map
+*.img
+
+# Compiler-generated files
+*.d
+*.out
+*.a
+*.so
+*.lo
+*.la
+
+# Backup and temporary files
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Debugging and logs
+*.log
+*.core
+*.dbg
+
+# QEMU and VirtualBox files
+*.vdi
+*.vmdk
+*.qcow2
+*.vhd
+*.vbox
+*.vbox-prev
+
+# Makefile output
+Makefile~
